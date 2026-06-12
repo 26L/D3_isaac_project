@@ -18,8 +18,9 @@ PKG="$WS/src/smart_farm_spot"
 INST="$WS/install/smart_farm_spot/share/smart_farm_spot"
 ISAACLAB=/home/rokey/dev_ws/isaac_sim/IsaacLab
 VENV=/home/rokey/dev_ws/venv/isaaclab
-# 무팔 정책(no_arm) — 워크스페이스 자체완결(assets/policy/). 외부 IsaacLab 로그 의존 제거.
-FLATPOL="$PKG/assets/policy/policy_no_arm_bast.pt"
+# 무팔 보행정책 — 검증판 spot_flat(주행 안정). no_arm_bast 는 SpotArm 태스크서 보행 불안정→교체.
+#  워크스페이스 자체완결(assets/policy/, 외부 IsaacLab 로그 의존 제거).
+FLATPOL="$PKG/assets/policy/policy_spot_flat.pt"
 DISP="${DISPLAY:-:1}"
 
 echo "════════════ 시나리오: SLAM + Nav2 + RL_주행 (도메인 $DOMAIN) ════════════"
