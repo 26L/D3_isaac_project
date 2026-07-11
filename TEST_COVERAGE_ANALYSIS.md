@@ -2,11 +2,20 @@
 
 _Analysis date: 2026-06-11_
 
-## 1. Current state: effectively 0% automated coverage
+> **⚠️ 이력 문서 (2026-06-11 기준).** 본 분석은 **단위 테스트 도입 이전** 상태를 기록한 것입니다.
+> 이후 `src/smart_farm_spot/test/` 에 **테스트 파일 7개 · `test_*` 함수 51개**가 추가되어 §1 의
+> "테스트 0개 / `test/` 없음" 서술은 **더 이상 유효하지 않습니다.** 현재 테스트 파일:
+> `test_arm_mass.py`(4) · `test_arm_poses.py`(12) · `test_cow_tracker.py`(11) ·
+> `test_dashboard_bridge.py`(5) · `test_inspection_capture.py`(6) · `test_inspect_sequence.py`(10) ·
+> `test_keepout_mask.py`(3).
+> 아래 §3~§7 의 **미착수 대상**(geometry 추출, thermal_processor, cow-tail 역투영, 맵 차원 일관성,
+> CI 등)은 여전히 **향후 로드맵**으로 유효합니다.
 
-| Signal | Finding |
+## 1. Current state (2026-06-11): effectively 0% automated coverage → **이후 51개 테스트 추가됨**
+
+| Signal | Finding (2026-06-11) |
 |--------|---------|
-| Unit/integration tests | **None.** No `test/` directory, no `test_*.py`, no `conftest.py`. |
+| Unit/integration tests | ~~**None.** No `test/` directory~~ → **현재 `test/` 7개 파일·51개 테스트 존재** (상단 배너 참조). |
 | The one "test" file | `isaac/ros_bridge_test.py` is a manual ROS smoke script (live publishers/subscribers), not an automated test. |
 | ament lint tests | Declared in `package.xml` (`ament_copyright`, `ament_flake8`, `ament_pep257`, `python3-pytest`) but the conventional `test/test_flake8.py` / `test_pep257.py` / `test_copyright.py` files are **missing**, so `colcon test` runs nothing. |
 | CI | No `.github/workflows`, no `tox.ini`, no `pytest.ini`. Nothing runs on push/PR. |

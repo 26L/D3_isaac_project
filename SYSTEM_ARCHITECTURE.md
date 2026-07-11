@@ -138,7 +138,7 @@ graph TB
 ## 6. 레포 디렉터리 구조 (실제)
 
 ```text
-D3_isaac_project/
+D3_isaac_smart_bran/
 ├── src/smart_farm_spot/            # [Edge] ROS2 패키지
 │   ├── smart_farm_spot/            #   ros2 run 노드(waypoint_patrol)
 │   ├── isaac/                      #   Isaac 브릿지(scenario.py, nav_*bridge, scene_setup)
@@ -148,7 +148,10 @@ D3_isaac_project/
 │   ├── launch/                     #   spot_nav2·spot_slam·keepout·bringup
 │   ├── maps/ · assets/             #   맵(점유격자) · USD/정책/YOLO
 │   ├── tools/                      #   check_warmstart·check_twist_mux·make_keepout_mask
-│   └── test/                       #   단위 테스트 47개
+│   └── test/                       #   단위 테스트 51개 (test_*.py 7파일)
+├── src/spot_cow_udder_full_code_pack/  # [Edge] 유방 검사 파이프라인 코드팩(Script Editor용)
+│   └── …/actual_yolo_depth_pipeline/   #   cow_capture_depth·cow_yolo_3d_nav·spot_cow_inspection
+│       + legacy_marker_bplan_scripts/  #   초기 marker/GT B안 보조 스크립트
 ├── dashboard/                      # [Cloud] FastAPI 관제
 │   ├── server.py · database.py · routes/ · templates/
 │   ├── camera_stream.py · mqtt_client.py · ros2_bridge.py · detect_mastitis.py

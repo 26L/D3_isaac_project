@@ -147,15 +147,18 @@ ROS_DOMAIN_ID=153 rqt_image_view /yolo/annotated
 
 ```
 spot_ws/
-├── README.md  ·  requirements.txt  ·  SYSTEM_ARCHITECTURE.md  ·  TODO.md
+├── README.md  ·  requirements.txt  ·  SYSTEM_ARCHITECTURE.md  ·  TODO.md  ·  TEST_COVERAGE_ANALYSIS.md
 ├── dashboard/                       # 웹 대시보드 (FastAPI+MQTT+SQLite)
-└── src/smart_farm_spot/             # ROS 2 패키지
-    ├── isaac/                       # Isaac Sim 실행 (scenario.py, record_4cam.py …)
-    ├── launch/                      # bringup, nav2(_amcl/_flat), keepout, spot_slam …
-    ├── config/                      # nav2_params(_slam/_amcl), twist_mux, waypoints …
-    ├── scripts/                     # run_scenario(_amcl/_slam).sh
-    ├── maps/                        # 점유격자 + keepout 마스크
-    ├── assets/                      # USD 씬·로봇·소·텍스처 + 정책(policy.pt)·YOLO(best.pt)
-    ├── tools/                       # check_twist_mux, make_keepout_mask, gen_random_waypoints
-    └── *.py                         # yolo_view, scenario_nav, patrol, barn_map_server …
+├── src/smart_farm_spot/             # ROS 2 패키지
+│   ├── isaac/                       # Isaac Sim 실행 (scenario.py, record_4cam.py …)
+│   ├── launch/                      # bringup, nav2(_amcl/_flat), keepout, spot_slam …
+│   ├── config/                      # nav2_params(_slam/_amcl), twist_mux, waypoints …
+│   ├── scripts/                     # run_scenario(_amcl/_slam).sh
+│   ├── maps/                        # 점유격자 + keepout 마스크
+│   ├── assets/                      # USD 씬·로봇·소·텍스처 + 정책(policy.pt)·YOLO(best.pt)
+│   ├── tools/                       # check_twist_mux, make_keepout_mask, check_warmstart
+│   ├── test/                        # 단위 테스트 51개 (test_*.py 7파일)
+│   └── *.py                         # yolo_view, scenario_nav, patrol, barn_map_server …
+└── src/spot_cow_udder_full_code_pack/   # 유방 검사 파이프라인 코드팩 (Isaac Script Editor용)
+    └── actual_yolo_depth_pipeline/  # cow_capture_depth, cow_yolo_3d_nav, spot_cow_inspection
 ```
